@@ -1,11 +1,11 @@
 {
-    'name': 'Real Estate',
+    'name': 'Estate',
     'version': '1.0',
     'depends': ['base'],
-    'author': 'Your Name',
+    'author': 'DJAWED',
     'category': 'Sales',
     'description': """
-    Real Estate Advertisement Module
+        Estate Tutorial Module
     """,
     'application': True,
     'installable': True,
