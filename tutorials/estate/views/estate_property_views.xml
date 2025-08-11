@@ -95,8 +95,22 @@
     </record>
 
     <!-- Menus -->
-    <menuitem id="test_menu_root" name="Estate Property" sequence="10"/>
-    <menuitem id="test_first_level_menu" name="Menu" parent="test_menu_root" sequence="20"/>
-    <menuitem id="test_model_menu_action" name="Estate Properties" parent="test_first_level_menu" action="action_estate_property" sequence="30"/>
+   <menuitem id="estate_menu_root"
+          name="Real Estate"
+          sequence="10"/>
+
+<!-- Advertisements -->
+<menuitem id="estate_menu_advertisements"
+          name="Advertisements"
+          parent="estate_menu_root"
+          sequence="10"/>
+
+<menuitem id="estate_menu_estate_property"
+          name="Estate Properties"
+          parent="estate_menu_advertisements"
+          action="action_estate_property"
+          sequence="10"/>
+
+
 
 </odoo>

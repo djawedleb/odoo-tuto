@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- list view -->
+    <record id="view_estate_property_type_tree" model="ir.ui.view">
+        <field name="name">estate.property.type.list</field>
+        <field name="model">estate.property.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- search view -->
+    <record id="view_estate_property_type_search" model="ir.ui.view">
+        <field name="name">estate.property.type.search</field>
+        <field name="model">estate.property.type</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- action -->
+    <record id="action_estate_property_type" model="ir.actions.act_window">
+        <field name="name">Property Types</field>
+        <field name="res_model">estate.property.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+<!-- Settings -->
+<menuitem id="estate_menu_settings"
+          name="Settings"
+          parent="estate_menu_root"
+          sequence="20"/>
+
+<menuitem id="estate_menu_estate_property_type"
+          name="Property Types"
+          parent="estate_menu_settings"
+          action="action_estate_property_type"
+          sequence="10"/>
+
+</odoo>
