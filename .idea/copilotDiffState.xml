@@ -3,15 +3,6 @@
   <component name="CopilotDiffPersistence">
     <option name="pendingDiffs">
       <map>
-        <entry key="$PROJECT_DIR$/tutorials/estate/models/__init__.py">
-          <value>
-            <PendingDiffInfo>
-              <option name="filePath" value="$PROJECT_DIR$/tutorials/estate/models/__init__.py" />
-              <option name="originalContent" value="from . import estate_properties&#10;from . import estate_properties_type&#10;&#10;" />
-              <option name="updatedContent" value="from . import estate_property&#10;from . import estate_property_type" />
-            </PendingDiffInfo>
-          </value>
-        </entry>
         <entry key="$PROJECT_DIR$/tutorials/estate/models/estate_properties.py">
           <value>
             <PendingDiffInfo>
@@ -27,15 +18,6 @@
               <option name="filePath" value="$PROJECT_DIR$/tutorials/estate/models/estate_properties_type.py" />
               <option name="originalContent" value="from odoo import models, fields&#10;&#10;class EstatePropertyType(models.Model):&#10;    _name = 'estate.property.type'&#10;    _description = &quot;Real Estate Property Type&quot;&#10;&#10;    name = fields.Char(required=True)&#10;    property_ids = fields.One2many(&#10;        'estate.property',  # related model&#10;        'property_type_id',  # field in estate.property&#10;        string=&quot;Properties&quot;&#10;    )" />
               <option name="updatedContent" value="from odoo import models, fields&#10;&#10;class EstatePropertyType(models.Model):&#10;    _name = 'estate.property.type'&#10;    _description = &quot;Real Estate Property Type&quot;&#10;&#10;    name = fields.Char(required=True)&#10;    property_ids = fields.One2many(&#10;        'estate.property',  # related model&#10;        'property_type_id',  # field in estate.property&#10;        string=&quot;Properties&quot;,&#10;    )" />
-            </PendingDiffInfo>
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/tutorials/estate/models/estate_property.py">
-          <value>
-            <PendingDiffInfo>
-              <option name="filePath" value="$PROJECT_DIR$/tutorials/estate/models/estate_property.py" />
-              <option name="originalContent" value="from datetime import date, timedelta&#10;from odoo import models, fields&#10;&#10;class EstateProperty(models.Model):&#10;    _name = 'estate.property'&#10;    _description = &quot;Real Estate Property Model&quot;&#10;    &#10;    name = fields.Char(required=True, default=&quot;Unknown&quot;)&#10;    user_id = fields.Many2one( 'res.users', string='Salesperson',&#10;                              default=lambda self: self.env.user)&#10;    buyer_id = fields.Many2one(&#10;        &quot;res.partner&quot;,&#10;        string=&quot;Buyer&quot;,&#10;        copy=False&#10;    )&#10;&#10;    description = fields.Text()&#10;    postcode = fields.Char()&#10;    last_seen = fields.Datetime(&quot;Last Seen&quot;, default=fields.Datetime.now)&#10;    date_availability = fields.Date(copy=False, default=lambda self: date.today() + timedelta(days=90))&#10;    expected_price = fields.Float(required=True)&#10;    selling_price = fields.Float(readonly=True, copy=False)&#10;    bedrooms = fields.Integer(default=2)&#10;    living_area = fields.Integer()&#10;    facades = fields.Integer()&#10;    garage = fields.Boolean()&#10;    garden = fields.Boolean()&#10;    garden_area = fields.Integer()&#10;    garden_orientation = fields.Selection([&#10;        ('north', 'North'),&#10;        ('south', 'South'),&#10;        ('east', 'East'),&#10;        ('west', 'West')&#10;    ], string=&quot;Garden Orientation&quot;)&#10;&#10;    state = fields.Selection([&#10;        ('new', 'New'),&#10;        ('offer_received', 'Offer Received'),&#10;        ('offer_accepted', 'Offer Accepted'),&#10;        ('sold', 'Sold')&#10;    ], default='new', required=True, copy=False, string=&quot;Status&quot;)&#10;&#10;    active = fields.Boolean(default=True)&#10;&#10;    property_type_id = fields.Many2one('estate.property.type', string=&quot;Property Type&quot;)&#10;" />
-              <option name="updatedContent" value="from datetime import date, timedelta&#10;from odoo import models, fields&#10;&#10;class EstateProperty(models.Model):&#10;    _name = 'estate.property'&#10;    _description = &quot;Real Estate Property Model&quot;&#10;    &#10;    name = fields.Char(required=True, default=&quot;Unknown&quot;)&#10;    user_id = fields.Many2one( 'res.users', string='Salesperson',&#10;                              default=lambda self: self.env.user)&#10;    buyer_id = fields.Many2one(&#10;        &quot;res.partner&quot;,&#10;        string=&quot;Buyer&quot;,&#10;        copy=False&#10;    )&#10;&#10;    description = fields.Text()&#10;    postcode = fields.Char()&#10;    last_seen = fields.Datetime(&quot;Last Seen&quot;, default=fields.Datetime.now)&#10;    date_availability = fields.Date(copy=False, default=lambda self: date.today() + timedelta(days=90))&#10;    expected_price = fields.Float(required=True)&#10;    selling_price = fields.Float(readonly=True, copy=False)&#10;    bedrooms = fields.Integer(default=2)&#10;    living_area = fields.Integer()&#10;    facades = fields.Integer()&#10;    garage = fields.Boolean()&#10;    garden = fields.Boolean()&#10;    garden_area = fields.Integer()&#10;    garden_orientation = fields.Selection([&#10;        ('north', 'North'),&#10;        ('south', 'South'),&#10;        ('east', 'East'),&#10;        ('west', 'West')&#10;    ], string=&quot;Garden Orientation&quot;)&#10;&#10;    state = fields.Selection([&#10;        ('new', 'New'),&#10;        ('offer_received', 'Offer Received'),&#10;        ('offer_accepted', 'Offer Accepted'),&#10;        ('sold', 'Sold')&#10;    ], default='new', required=True, copy=False, string=&quot;Status&quot;)&#10;&#10;    active = fields.Boolean(default=True)&#10;&#10;    property_type_id = fields.Many2one('estate.property.type', string=&quot;Property Type&quot;)&#10;" />
             </PendingDiffInfo>
           </value>
         </entry>

@@ -41,6 +41,9 @@ class EstateProperty(models.Model):
     ], default='new', required=True, copy=False, string="Status")
 
     active = fields.Boolean(default=True)
-
+    # This means: Many properties can share the same property type.
     property_type_id = fields.Many2one('estate.property.type', string="Property Type")
 
+    # A property can have many tags and a tag can be assigned to many properties. This is supported by the many2many concept.
+    tag_ids  = fields.Many2many(
+        'estate.property.tag',)

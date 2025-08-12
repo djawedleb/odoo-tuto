@@ -12,17 +12,6 @@
         </field>
     </record>
 
-    <!-- search view -->
-    <record id="view_estate_property_type_search" model="ir.ui.view">
-        <field name="name">estate.property.type.search</field>
-        <field name="model">estate.property.type</field>
-        <field name="arch" type="xml">
-            <search>
-                <field name="name"/>
-            </search>
-        </field>
-    </record>
-
     <!-- action -->
     <record id="action_estate_property_type" model="ir.actions.act_window">
         <field name="name">Property Types</field>
