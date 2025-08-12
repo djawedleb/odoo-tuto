@@ -1,5 +1,6 @@
 from datetime import date, timedelta
 from odoo import api,models, fields
+from odoo.exceptions import UserError
 from odoo.tools.populate import compute
 
 
@@ -39,8 +40,9 @@ class EstateProperty(models.Model):
         ('new', 'New'),
         ('offer_received', 'Offer Received'),
         ('offer_accepted', 'Offer Accepted'),
-        ('sold', 'Sold')
-    ], default='new', required=True, copy=False, string="Status")
+        ('sold', 'Sold'),
+        ('canceled', 'Canceled')
+    ], required=True, copy=False, string="Status")
 
     active = fields.Boolean(default=True)
     # This means: Many properties can share the same property type.
@@ -85,3 +87,16 @@ class EstateProperty(models.Model):
             else:
                 record.garden_area = 0
                 record.garden_orientation = False
+
+    def cancel_property(self):
+        for record in self:
+            record.state = 'canceled'
+        return True
+
+    def sold_property(self):
+        for record in self:
+            if record.state == 'canceled':
+                raise UserError("You cannot sell a canceled property.")
+            record.state = 'sold'
+        return True
+
