@@ -58,12 +58,24 @@
                             <field name="garden_area"/>
                         </group>
                     </page>
+                    <page string="Offers">
+                        <group>
+                           <field name="offer_ids">
+                                <tree string="Offers">
+                                    <field name="price"/>
+                                    <field name="partner_id"/>
+                                    <field name="status"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
                     <page string="otherInfo">
                         <group>
                             <field name="user_id"/>
                             <field name="buyer_id"/>
                         </group>
                     </page>
+
                 </notebook>
 
             </sheet>

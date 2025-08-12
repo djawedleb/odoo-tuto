@@ -1,12 +1,13 @@
 from datetime import date, timedelta
 from odoo import models, fields
 
+
 class EstateProperty(models.Model):
     _name = 'estate.property'
     _description = "Real Estate Property Model"
-    
+
     name = fields.Char(required=True, default="Unknown")
-    user_id = fields.Many2one( 'res.users', string='Salesperson',
+    user_id = fields.Many2one('res.users', string='Salesperson',
                               default=lambda self: self.env.user)
     buyer_id = fields.Many2one(
         "res.partner",
@@ -45,5 +46,7 @@ class EstateProperty(models.Model):
     property_type_id = fields.Many2one('estate.property.type', string="Property Type")
 
     # A property can have many tags and a tag can be assigned to many properties. This is supported by the many2many concept.
-    tag_ids  = fields.Many2many(
-        'estate.property.tag',)
+    tag_ids = fields.Many2many(
+        'estate.property.tag', )
+
+    offer_ids= fields.One2many('estate.property.offer', 'property_id', string="Offers")
