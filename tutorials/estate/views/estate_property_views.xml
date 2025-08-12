@@ -33,6 +33,7 @@
                      <group>
                         <field name="expected_price"/>
                          <field name="selling_price"/>
+                         <field name="best_price"/>
                      </group>
                     <group>
                         <field name="tag_ids" widget="many2many_tags"/>
@@ -56,6 +57,7 @@
                             <field name="garage"/>
                             <field name="garden"/>
                             <field name="garden_area"/>
+                            <field name="total_area"/>
                         </group>
                     </page>
                     <page string="Offers">
@@ -64,6 +66,8 @@
                                 <tree string="Offers">
                                     <field name="price"/>
                                     <field name="partner_id"/>
+                                    <field name="validity"/>
+                                    <field name="date_deadline"/>
                                     <field name="status"/>
                                 </tree>
                             </field>
