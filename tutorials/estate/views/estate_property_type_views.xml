@@ -7,8 +7,46 @@
         <field name="model">estate.property.type</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="sequence" widget="handle"/>
                 <field name="name"/>
+                <field name="offer_count"/>
             </tree>
+        </field>
+    </record>
+
+    <!-- form view -->
+    <record id="view_estate_property_type_form" model="ir.ui.view">
+        <field name="name">estate.property.type.form</field>
+        <field name="model">estate.property.type</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <!-- Smart button box -->
+                        <button name="%(action_estate_property_offer_from_type)d"
+                                type="action"
+                                class="oe_stat_button">
+
+                            <field name="offer_count" widget="statinfo" string=" Offers"/>
+                        </button>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="sequence"/>
+                    </group>
+                    <notebook>
+                        <page string="Properties">
+                            <field name="property_ids">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="expected_price"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
         </field>
     </record>
 
@@ -19,16 +57,16 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-<!-- Settings -->
-<menuitem id="estate_menu_settings"
-          name="Settings"
-          parent="estate_menu_root"
-          sequence="20"/>
+    <!-- Settings menu -->
+    <menuitem id="estate_menu_settings"
+              name="Settings"
+              parent="estate_menu_root"
+              sequence="20"/>
 
-<menuitem id="estate_menu_estate_property_type"
-          name="Property Types"
-          parent="estate_menu_settings"
-          action="action_estate_property_type"
-          sequence="10"/>
+    <menuitem id="estate_menu_estate_property_type"
+              name="Property Types"
+              parent="estate_menu_settings"
+              action="action_estate_property_type"
+              sequence="10"/>
 
 </odoo>
